@@ -55,11 +55,13 @@ public final class MaceHelperClient implements ClientModInitializer {
     public static void onLocalMaceAttack(Player attacker) {
         MaceHelperConfig currentConfig = getConfig();
         Minecraft client = Minecraft.getInstance();
-        if (!currentConfig.isEnabled() || client.player != attacker || !attacker.getMainHandItem().is(Items.MACE)) {
+        ItemStack mace = attacker.getMainHandItem();
+        if (!currentConfig.isEnabled() || client.player != attacker || !mace.is(Items.MACE)) {
             return;
         }
 
         registerMaceHit(attacker, true, currentConfig);
+        attacker.getCooldowns().addCooldown(mace, cooldownTicks(currentConfig.getDurationSeconds()));
     }
 
     public static boolean shouldBlockMaceAttack(Player attacker) {
@@ -83,6 +85,10 @@ public final class MaceHelperClient implements ClientModInitializer {
     private static void registerMaceHit(Player attacker, boolean localPlayer, MaceHelperConfig currentConfig) {
         long gameTime = attacker.level().getGameTime();
         COLOR_TRACKER.onMaceHit(attacker, localPlayer, gameTime, currentConfig);
+    }
+
+    private static int cooldownTicks(double durationSeconds) {
+        return Math.max(1, (int) Math.ceil(durationSeconds * 20.0));
     }
 
     public static int getTintColor(LivingEntity holder) {
