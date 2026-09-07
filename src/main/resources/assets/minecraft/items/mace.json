@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "minecraft:item/mace",
+    "tints": [
+      {
+        "type": "mace_helper:player_color",
+        "default": -1
+      }
+    ]
+  }
+}

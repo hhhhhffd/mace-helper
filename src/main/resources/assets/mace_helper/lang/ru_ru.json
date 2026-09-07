@@ -1,0 +1,14 @@
+{
+  "screen.mace_helper.title": "Настройки Mace Helper",
+  "screen.mace_helper.first_color": "Первый цвет",
+  "screen.mace_helper.second_color": "Второй цвет",
+  "screen.mace_helper.duration": "Переход и кулдаун",
+  "screen.mace_helper.seconds": "секунд",
+  "screen.mace_helper.enabled": "Включено: %s",
+  "screen.mace_helper.on": "ДА",
+  "screen.mace_helper.off": "НЕТ",
+  "screen.mace_helper.reset": "Сбросить",
+  "screen.mace_helper.cancel": "Отмена",
+  "screen.mace_helper.apply": "Применить",
+  "screen.mace_helper.save_error": "Не удалось сохранить конфигурацию"
+}

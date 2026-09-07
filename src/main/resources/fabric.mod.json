@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "mace_helper",
+  "version": "${version}",
+  "name": "Mace Helper",
+  "description": "Client-side color transitions and attack cooldown for the vanilla mace.",
+  "authors": [
+    "mace-helper contributors"
+  ],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "ru.macehelper.client.MaceHelperClient"
+    ],
+    "modmenu": [
+      "ru.macehelper.client.MaceHelperModMenu"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "mace_helper.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": ">=17.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "ru.macehelper.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "EntityMixin",
+    "MultiPlayerGameModeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

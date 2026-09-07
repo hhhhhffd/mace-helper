@@ -1,0 +1,14 @@
+{
+  "screen.mace_helper.title": "Mace Helper settings",
+  "screen.mace_helper.first_color": "First color",
+  "screen.mace_helper.second_color": "Second color",
+  "screen.mace_helper.duration": "Transition and cooldown",
+  "screen.mace_helper.seconds": "seconds",
+  "screen.mace_helper.enabled": "Enabled: %s",
+  "screen.mace_helper.on": "ON",
+  "screen.mace_helper.off": "OFF",
+  "screen.mace_helper.reset": "Reset",
+  "screen.mace_helper.cancel": "Cancel",
+  "screen.mace_helper.apply": "Apply",
+  "screen.mace_helper.save_error": "Could not save the configuration"
+}
