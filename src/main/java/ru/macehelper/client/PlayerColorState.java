@@ -14,20 +14,11 @@ final class PlayerColorState {
 
     void onHit(int firstColor, int secondColor, boolean localPlayer, long nowNanos, long durationNanos) {
         getColor(nowNanos);
-
-        if (transitioning) {
-            if (localPlayer) {
-                return;
-            }
-
-            settledColor = originColor;
-            startTransition(originColor, targetColor, nowNanos, durationNanos);
+        if (transitioning && localPlayer) {
             return;
         }
 
-        int currentColor = settledColor;
-        int nextColor = currentColor == opaque(firstColor) ? opaque(secondColor) : opaque(firstColor);
-        startTransition(currentColor, nextColor, nowNanos, durationNanos);
+        startTransition(secondColor, firstColor, nowNanos, durationNanos);
     }
 
     boolean isTransitioning(long nowNanos) {
