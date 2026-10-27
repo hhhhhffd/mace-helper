@@ -1,56 +1,63 @@
-# Mace Helper
+<div align="center">
 
-Клиентский Fabric-мод для Minecraft 1.21.11, который окрашивает ванильную булаву и плавно переключает цвет после успешной атаки.
+<h1>Mace Helper</h1>
+<hr>
 
-## Демонстрация
+**Client-side Fabric mod that recolors the vanilla mace and shows its attack cooldown**
 
-[Смотреть демо на YouTube](https://youtu.be/tEFYyc4sGNY)
+![Minecraft](https://img.shields.io/badge/MINECRAFT-1.21.11-62B47A?style=flat-square&logo=minecraft&logoColor=white)
+![Fabric](https://img.shields.io/badge/FABRIC_LOADER-0.17.3-DBD0B4?style=flat-square)
+![Java](https://img.shields.io/badge/JAVA-21-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Release](https://img.shields.io/github/v/release/hhhhhffd/mace-helper?style=flat-square)
+![License](https://img.shields.io/github/license/hhhhhffd/mace-helper?style=flat-square)
 
-## Возможности
+[Download](https://github.com/hhhhhffd/mace-helper/releases) · [Demo](https://youtu.be/tEFYyc4sGNY) · [Build](#build) · [License](#license)
 
-- два настраиваемых цвета в формате `#RRGGBB`;
-- после удара булава сразу становится второго цвета и плавно возвращается к первому;
-- общий таймер перехода и кулдауна для каждого игрока;
-- локальная блокировка атак булавой на время таймера;
-- ванильный индикатор кулдауна в ячейке хотбара;
-- настройки через `config/mace_helper.json`;
-- встроенные Fabric API и Mod Menu, поэтому отдельные JAR-файлы для них не нужны;
-- экран настроек через встроенный Mod Menu.
+</div>
 
-Мод полностью клиентский. На сервере без этого мода нельзя гарантировать блокировку атак других игроков.
+> [!NOTE]
+> Archived — no longer maintained.
 
-Настройки хранятся в `config/mace_helper.json`:
+[![Mace Helper demo on YouTube](https://img.youtube.com/vi/tEFYyc4sGNY/hqdefault.jpg)](https://youtu.be/tEFYyc4sGNY)
 
-- `enabled` — включает или выключает мод;
-- `first_color` и `second_color` — цвета в формате `#RRGGBB`;
-- `duration_seconds` — длительность перехода и блокировки атаки в секундах.
+## What it is
 
-Пример конфига:
+Mace Helper tints the vanilla mace and switches its color after a successful hit, fading back over a configurable time. The same timer blocks your own mace attacks while it runs and fills the vanilla cooldown indicator in the hotbar slot.
 
-```json
-{
-  "enabled": true,
-  "first_color": "#00FF00",
-  "second_color": "#FF0000",
-  "duration_seconds": 3.0
-}
-```
+## Features
 
-Поскольку Mod Menu уже встроен в JAR, эти же параметры доступны через экран настроек мода.
+- Two configurable colors in `#RRGGBB` format.
+- After a hit the mace turns the second color and fades back to the first.
+- One shared transition and cooldown timer per player.
+- Local block on mace attacks while the timer runs.
+- Vanilla cooldown indicator in the hotbar slot.
+- Settings screen through the bundled Mod Menu; Fabric API and Mod Menu are included in the JAR.
 
-## Установка
+The mod is fully client-side. On a server without the mod, blocking other players' attacks cannot be guaranteed.
 
-Для Minecraft 1.21.11 с Fabric Loader 0.17.3 или новее используйте `mace-helper-1.0.1.jar`.
-Перед установкой удалите старый JAR Mace Helper из папки `mods` выбранного профиля и положите туда новую сборку.
-Fabric API и Mod Menu уже включены в JAR.
+## Configuration
 
-Если MaceHelper 1.0.0 падает с `NoSuchMethodError` при создании `KeyBinding`, установленный JAR отличается от текущих исходников.
-В этой сборке настройки открываются через Mod Menu; мод не регистрирует собственные бинды клавиш.
+`config/mace_helper.json`:
 
-## Сборка
+| Key | Default | Meaning |
+| --- | --- | --- |
+| `enabled` | `true` | turns the mod on or off |
+| `first_color` | `#00FF00` | base mace color |
+| `second_color` | `#FF0000` | color right after a hit |
+| `duration_seconds` | `3.0` | transition and attack-block duration |
 
-```text
+## Install
+
+Download the JAR from the [releases page](https://github.com/hhhhhffd/mace-helper/releases) (release `1.0.0`, asset `mace-helper.jar`) and put it into `mods/` for Minecraft 1.21.11 with Fabric Loader 0.17.3 or newer. Remove any older Mace Helper JAR first. The current source is version 1.0.1; to get it, build from source.
+
+## Build
+
+```bash
 ./gradlew build
 ```
 
-Готовый JAR: `build/libs/mace-helper-1.0.1.jar`. Файл с суффиксом `-sources.jar` предназначен для просмотра исходников, а не для установки.
+The JAR is `build/libs/mace-helper-1.0.1.jar`. The `-sources.jar` file is for reading the source, not for installing.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
